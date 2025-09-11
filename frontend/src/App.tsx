@@ -22,6 +22,7 @@ function App() {
     fetchCards();
   }, []);
 
+  // increment click counter
   const handleClick = async (id: number) => {
     const res = await fetch(`http://localhost:5000/api/cards/${id}/click`, {
       method: "POST",
@@ -32,6 +33,7 @@ function App() {
     );
   };
 
+  // clears click number
   const handleClear = async () => {
     const res = await fetch("http://localhost:5000/api/cards/clear", {
       method: "POST",
@@ -41,6 +43,7 @@ function App() {
     setSort("default");
   };
 
+  // sorts cards
   const sortedCards = [...cards].sort((a, b) => {
     if (sort === "clicks") return b.click_count - a.click_count;
     if (sort === "first") {
@@ -57,18 +60,19 @@ function App() {
     return a.number - b.number;
   });
 
+  // html of frontend
   return (
     <div className="App">
       <h1>Click Cards</h1>
       <div className="controls">
-        <button onClick={() => setSort("default")}>Original</button>
-        <button onClick={() => setSort("clicks")}>Most Clicks</button>
-        <button onClick={() => setSort("first")}>First Clicked</button>
-        <button onClick={handleClear}>Clear</button>
+        <button className = "nav" onClick={() => setSort("default")}>Original</button>
+        <button className = "nav" onClick={() => setSort("clicks")}>Most Clicks</button>
+        <button className = "nav" onClick={() => setSort("first")}>First Clicked</button>
+        <button className = "nav" onClick={handleClear}>Clear</button>
       </div>
       <div className="grid">
         {sortedCards.map((card) => (
-          <div
+          <button
             key={card.id}
             className="card"
             onClick={() => handleClick(card.id)}
@@ -79,7 +83,7 @@ function App() {
               First click:{" "}
               {card.first_click ? new Date(card.first_click).toLocaleString() : "—"}
             </p>
-          </div>
+          </button>
         ))}
       </div>
     </div>
