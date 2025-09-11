@@ -27,18 +27,24 @@ body {
 
 .nav:hover {
   background: #007bff;
+  transform: scale(1.01);
+
 }
 
 .nav:active {
-  transform: translate(1px, 1px);
+  transform: translate(1px, 1px) !important;
   transition: transform 0.1s ease;
+  
 }
 
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
+   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .card {
@@ -52,15 +58,13 @@ body {
 
 }
 
-.card:hover {
-  background: #ff5656;
-}
 
 .card:active {
-    transform: translate(3px, 3px);
+    transform: translate(3px, 3px) !important;
     transition: transform 0.1s ease;
 }
 
 .card:hover {
   background: #ff6969;
+  transform: scale(1.01);
 }
