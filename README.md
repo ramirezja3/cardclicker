@@ -1,7 +1,7 @@
 To run the card clicker, clone this repository: https://github.com/ramirezja3/cardclicker.git
 Docker is needed to be installed.
 Run the following commands in order:
-- git clone https://github.com/your-username/clickcards-app.git
+- git clone https://github.com/ramirezja3/clickcards-app.git
 - cd clickcards-app
 - docker-compose up --build
 
